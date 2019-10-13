@@ -1,13 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+
+import Badge from './components/Badge/Badge'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Segunda clase</p>
-      </header>
+      <Badge />
     </div>
   );
 }
