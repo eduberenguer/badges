@@ -7,6 +7,24 @@ import logo from '../images/badge-image.svg'
 import './styles/BadgeNew.css'
 
 class BadgeNew extends React.Component{
+    state = { form:{}}
+
+    handleChange = e => {
+        const { name, value} = e.target
+        this.setState({
+            form: {
+                ...this.state.form,
+                [name]: value}
+        })
+    }
+/*
+    handleChange = (test) => {
+        //const { name, value} = e.target
+        this.setState({firstname: test})
+        console.log(this.state.firstName)
+    }
+*/
+
     render() {
         return(
             <div>
@@ -26,7 +44,7 @@ class BadgeNew extends React.Component{
                             />
                         </div>
                         <div className="col-6">
-                            <BadgeForm />
+                            <BadgeForm onChange={this.handleChange} formValues={this.state.form}/>
                         </div>
                     </div>
                 </div>
