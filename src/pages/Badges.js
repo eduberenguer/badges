@@ -1,37 +1,49 @@
 import React from 'react'
-
+import { Link } from "react-router-dom";
 import './styles/Badges.css'
 import logo from '../images/logo.svg'
-import Navbar from "../components/Navbar";
 import BadgesList from "../components/BadgesList";
 
 class Badges extends React.Component{
     state = {
-        data: [
-            {
-               "id":"1231231",
-               "firstName": "Daphney",
-               "lastName": "Edu",
-               "email": "asdad@asd",
-               "jobTitle": "National",
-                "twitter": "asdasd@aeda",
-                "avatarUrl": "https://www.test.com"
-            },
-            {
-                "id":"1231231",
-                "firstName": "Daphney",
-                "lastName": "Edu",
-                "email": "asdad@asd",
-                "jobTitle": "National",
-                "twitter": "asdasd@aeda",
-                "avatarUrl": "https://www.test.com"
-            }
-        ]
+        data: []
+    }
+    componentDidMount(){
+        fetch('https://rickandmortyapi.com/api/character/')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({data})
+            })
+        /* /!*setTimeout(() => {
+             this.setState({data: [
+                 {
+                     "id":"1231231",
+                     "firstName": "Daphney",
+                     "lastName": "Edu",
+                     "email": "asdad@asd",
+                     "jobTitle": "National",
+                     "twitter": "asdasd@aeda",
+                     "avatarUrl": "https://www.test.com"
+                 },
+                 {
+                     "id":"1231231",
+                     "firstName": "Daphney",
+                     "lastName": "Edu",
+                     "email": "asdad@asd",
+                     "jobTitle": "National",
+                     "twitter": "asdasd@aeda",
+                     "avatarUrl": "https://www.test.com"
+                 }
+             ]})
+         },3000)*!/*/
     }
     render() {
+        /*if(this.state.loading === true){
+            return 'Loading...'
+        }*/
+        console.log(this.state.data)
         return(
             <div>
-                <Navbar />
                 <div className='Badges'>
                     <div className='Badges__hero'>
                         <div className='Badges__container'>
@@ -41,13 +53,13 @@ class Badges extends React.Component{
                 </div>
                 <div className='Badges__container'>
                     <div className='Badges__buttons'>
-                        <a href="/badges/new" className='btn btn-primary'>
+                        <Link to="/badges/new" className='btn btn-primary'>
                             New Badge
-                        </a>
+                        </Link>
                     </div>
                     <div className='BadgesList'>
-                        <div className='Badges__container'>
-                            <BadgesList badges={this.state.data}/>
+                       <div className='Badges__container'>
+                           {!this.state.data.info ? 'Not data' : <BadgesList badges={this.state.data}/> }
                         </div>
                     </div>
                 </div>
