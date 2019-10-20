@@ -6,19 +6,19 @@ const BadgesList = (props) =>{
         return(
             <React.Fragment>
                 {
-                    props.badges.results.map(item => {
+                    props.badges.badges.map(item => {
                     return(
-                        <div className="item">
+                        <div className="item" key={item.id}>
                             <div className="item__header">
                                 <img src={confLogo} alt="Imagen de referencia"/>
                             </div>
-                        <div className="item__section-name">
-                            <img src={item.image} alt={item.name} className='item__avatar'/>
-                            <h1>{item.name}</h1>
-                        </div>
-                        <div className="item__section-info">
-                            <p>{item.gender} :: {item.species}</p>
-                        </div>
+                            <div className="item__section-name">
+                                <img src={item.avatarUrl} alt={item.name} className='item__avatar'/>
+                                <h1>{item.firstName} <br/> {item.lastName}</h1>
+                            </div>
+                            <div className="item__section-info">
+                                <p>{item.email} :: {item.twitter}</p>
+                            </div>
                         </div>
                     )}
                 )}

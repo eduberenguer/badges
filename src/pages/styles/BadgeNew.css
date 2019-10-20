@@ -3,6 +3,13 @@
     padding: 2rem 0;
     background: url('../../images/stars.svg'), #1B1B25;
     background-repeat: repeat;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     color: #ffffff;
+
+    display: flex;
+    justify-content: center;
+}
+
+.BadgeNew__hero-image{
+    max-height: 100px;
 }
