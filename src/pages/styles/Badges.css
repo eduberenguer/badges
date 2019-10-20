@@ -20,11 +20,11 @@
 }
 
 .Badges_conf-logo {
-    margin-bottom: 2rem;
+    max-height: 100px;
 }
 
 .Badges__buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     margin-bottom: 1rem;
 }

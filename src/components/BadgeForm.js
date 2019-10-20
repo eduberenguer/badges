@@ -1,21 +1,15 @@
 import React from 'react'
 
 class BadgeForm extends React.Component{
-    //state = {}
     /*onHandleChange = e => {
         const {value, name} = e.target
         this.setState({[name]: value})
     }*/
-
-    handleClick = e => {
-        e.preventDefault()
-    }
-
     render() {
         return(
             <div>
                 <p>New Attendant</p>
-                <form onSubmit={this.handleClick}>
+                <form onSubmit={this.props.onSubmit}>
                     <div className="form-group">
                         <label>First Name:</label>
                         <input onChange={this.props.onChange} className='form-control' type="text" name='firstName' value={this.props.formValues.firstName}/>
